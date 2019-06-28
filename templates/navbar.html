@@ -1,0 +1,45 @@
+
+<nav class="navbar navbar-expand-lg navbar-light py-1 sticky-top" style="background-color: #2C683D;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" style="color:white;" href="{% url 'blog:home-page' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color:white;" href="{% url 'blog:about-page' %}">About</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+
+        {% if request.user.is_authenticated %}
+
+        <div class="dropdown">
+            <button class="btn bt-default  dropdown-toggle" style='color:white;' type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Profile
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <a class="dropdown-item"  href="{% url 'blog:post-create' %}">New Post</a>
+              <a class="dropdown-item"  href="{% url 'users:user-profile' %}">settings</a>
+              <a class="dropdown-item"  href="{% url 'users:user-logout' %}">Logout</a>
+            </div>
+          </div>
+        {% else %}
+          <li class="nav-item">
+              <a class="nav-link" style="color:white;" href="{% url 'users:user-login' %}">Login</a>
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link" style="color:white;" href="{% url 'users:user-register' %}">Register</a>
+          </li>
+        {% endif %}
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" value="{{ request.GET.q }}">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }}-Post-Create{% endblock title %}
+{% block content %}
+
+<!-- 
+    ######################## POST DELETE CONFIRM #########################
+ -->
+
+<div class="content-section">
+    <div class="card">
+        <div class="card-body">
+            <h4>Are Confirm to delete "{{ object.title }}"</h4>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <button class="btn btn-outline-danger" type="submit">Confirm</button>
+                <a href="{% url 'blog:post-detail' pk=object.pk %}" class="btn btn-primary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

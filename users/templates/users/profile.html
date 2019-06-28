@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}{{ block.super }}-Registration{% endblock title %}
+{% block content %}
+<div class="content-section">
+    <div class="card" style="width: 40rem;">
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">
+                    {% thumbnail object.image "80x80" crop="center" as im %}
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="rounded-circle">
+                    {% endthumbnail %}
+                </div>
+                <div class="col-md-8">
+                    <h2>{{ object.user.username }}</h2>
+                    <p>{{ object.user.email }}</p>
+                </div>
+            </div>
+            <legend class="border-bottom mb-3 mt-2">Profile Info</legend>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+                <button class="btn btn-outline-info" type='submit' title='update profile'>Update</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+{% endblock content %}

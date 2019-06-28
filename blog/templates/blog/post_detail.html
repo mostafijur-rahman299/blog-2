@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}{{ block.super }}-Post-Detail{% endblock title %}
+{% load thumbnail %}
+{% block content %}
+
+<!-- 
+    ######################## POST DETAIL SECTION #########################
+ -->
+
+<div class="content">
+
+    <div id="#post-detail">
+        <div class="card" style="width: 60rem;">
+            <span class="mt-2 ml-1 airticle-metadata border-bottom">
+                {% thumbnail object.author.userprofile.image "40x40" crop="center" as im %}
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="rounded-circle">
+                {% endthumbnail %}
+                <a href="">@{{ object.author }}</a>
+                <small class="text-muted">{{ object.create_date }}</small>
+            </span>
+            <div class="card-body">
+                <span style="font-size: 30px;">{{ object.title }}</span>
+                {% if object.author == request.user %}
+                <a href="{% url 'blog:post-delete' pk=object.pk %}" class="ml-5  btn-danger btn-sm">Delete</a>
+                <a href="{% url 'blog:post-update' pk=object.pk %}" class="ml-1  btn-secondary btn-sm">Update</a>
+                {% endif %}
+                <p>{{ object.description|safe }}</p><br><br>
+            </div>
+        </div>
+
+    </div><br>
+
+    <!-- Discus comment system -->
+    <div id="discus-comment">
+        <div class="card" style="width: 60rem;">
+            <div class="card-body">
+                <div id="disqus_thread"></div>
+                <script>
+
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function () { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://mahmudsajib.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+                        powered
+                        by Disqus.</a></noscript>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock content %}

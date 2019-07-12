@@ -1,4 +1,4 @@
-# company-blog
+#blog
 
 **[LIVE ON](https://boiling-island-85198.herokuapp.com/)**
 

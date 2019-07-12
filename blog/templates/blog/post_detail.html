@@ -15,7 +15,7 @@
                 {% thumbnail object.author.userprofile.image "40x40" crop="center" as im %}
                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="rounded-circle">
                 {% endthumbnail %}
-                <a href="">@{{ object.author }}</a>
+                <a href="{% url 'blog:mark-user-home-page' username=object.author.username %}">@{{ object.author }}</a>
                 <small class="text-muted">{{ object.create_date }}</small>
             </span>
             <div class="card-body">

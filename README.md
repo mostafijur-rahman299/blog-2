@@ -1,6 +1,6 @@
 # company-blog
 
-### **Home page**
+**### Home page**
 ![REadmi image added](README_image/1.PNG)
 
 ### Post Detail

@@ -1,7 +1,7 @@
 # Blog
 
 ```
-This is simple Blog using Python, django, html, css and bootstrap.Any company or person user this blog.
+This is simple Blog using Python, django, html, css and bootstrap.
 ```
 
 **[LIVE ON](https://boiling-island-85198.herokuapp.com)**

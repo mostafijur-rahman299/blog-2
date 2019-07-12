@@ -1,3 +1,3 @@
 # company-blog
 
-![screenshot](README_image/1.png)
+![REadmi image added](README_image/1.png)

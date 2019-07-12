@@ -1,6 +1,6 @@
 # Blog
 
-LIVE ON**[https://boiling-island-85198.herokuapp.com](https://boiling-island-85198.herokuapp.com)**
+**[LIVE ON](https://boiling-island-85198.herokuapp.com)**
 
 ### Home page
 ![REadmi image added](README_image/1.PNG)

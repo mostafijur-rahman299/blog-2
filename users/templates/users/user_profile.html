@@ -3,7 +3,7 @@
 {% block  title %}{{ block.super }}-{{ object.user }}-profile{% endblock title %}
 {% block content %}
 
-<div class="card" style="width: 35rem; border: 3px solid #28a745;">
+<div class="card" style="width: 35rem; border: 3px solid #3D1E5B;">
         <div class="card-body">
                 {% thumbnail object.image "100x100" crop="center" as im %}
                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="img-thumbnail">

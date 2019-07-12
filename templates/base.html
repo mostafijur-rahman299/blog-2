@@ -12,7 +12,7 @@
 
     <!--======Tinymce Text-Editor=========-->
     <script src="{% static 'static/js/tinymce/tinymce.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'static/js/tinymce/custom.js' %}" ></script>
+    <script type="text/javascript" src="{% static 'static/js/tinymce/custom.js' %}"></script>
 
     <!-- bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -24,25 +24,23 @@
 
     <div class="container mt-2">
 
-            <!-- content -->
+        <!-- content -->
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            <strong>Success!</strong>{{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
 
-            <div class="col-md-8">
-                {% if messages %}
-                {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}" role="alert">
-                    <strong>Success!</strong>{{ message }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                {% endfor %}
-                {% endif %}
+        {% block content %}{% endblock content %}
 
-                {% block content %}{% endblock content %}
-            </div>
 
-            <!-- side bar -->
-            <!-- <div class="col-md-4">
+        <!-- side bar -->
+        <!-- <div class="col-md-4">
                 <div class="card" style="width: 18rem; position: sticky; top: 55px;">
                     <div class="card-body">
                         <h3>Our Sidebar</h3>

@@ -23,8 +23,8 @@
                 {% if object.author == request.user %}
                 <a href="{% url 'blog:post-delete' pk=object.pk %}" class="ml-5  btn-danger btn-sm">Delete</a>
                 <a href="{% url 'blog:post-update' pk=object.pk %}" class="ml-1  btn-secondary btn-sm">Update</a>
-                {% endif %}
-                <p>{{ object.description|safe }}</p><br><br>
+                {% endif %}<br><br>
+                <p>{{ object.description|safe }}</p><br>
             </div>
         </div>
 
